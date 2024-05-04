@@ -1,11 +1,11 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
-const breedSelectEl = document.querySelector('.breed-select');
-const catInforEl = document.querySelector('.cat-info');
+const breedSeletEl = document.querySelector('.breed-select');
+const catInfoEl = document.querySelector('.cat-info');
 const loaderEl = document.querySelector('.loader');
 const errorEl = document.querySelector('.error');
 
-//create options
+//update
 
 function chooseBreed() {
   fetchBreeds().then(data => {
@@ -16,8 +16,9 @@ function chooseBreed() {
         return `<options value=${id}>${name}</options>`;
       })
       .join('');
-    breedSelectEl.insertAdjacentHTML('beforeend', optionsMarkup);
-    breedSelectEl.classList.remove('is-hidden');
+    console.log(optionsMarkup);
+    breedSeletEl.insertAdjacentHTML('beforeend', optionsMarkup);
+    breedSeletEl.classList.remove('is-hidden');
   });
 }
 

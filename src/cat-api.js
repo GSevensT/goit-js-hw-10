@@ -1,32 +1,36 @@
-const BASE_URL = 'https://api.thecatapi.com/v1';
-
+const URL = 'https://api.thecatapi.com/v1';
 const API_KEY =
-  'live_Z8lL77cjoZLfd2UvxwrLQnP1bRublM80aqt0lhYP6HrYa11IXPUFd421MmM7D3Xr';
+  'live_Mun86OJyVolyhej5prwmi14eFf9mkJLC73BHCBq0ywaj7gx6278yISeKZigHHd83';
 
-export function fetchbreeds() {
-  return fetch(`${BASE_URL}/breeds`, {
-    headers: {
-      api_key: API_KEY,
-    },
-  }).then(res => {
-    if (res.ok) {
-      throw new Error(res.status);
-    } else {
-      return res.json();
-    }
-  });
-}
+//FETCHES BREEDS
 
-export function fetchCatByBreed(breedid) {
-  return fetch(`${BASE_URL}/images/search`, {
+export function fetchBreeds() {
+  return fetch(`${URL}/breeds`, {
     headers: {
       api_key: API_KEY,
     },
   }).then(res => {
     if (!res.ok) {
       throw new Error(res.status);
-    } else {
-      return res.json();
     }
+    return res.json();
+  });
+}
+
+//FETCHES CAT BREED
+
+export function fetchCatByBreed(breedId) {
+  return fetch(
+    `${BASE_URL}/images/search?breed_ids=${breedId}&api_key=${API_KEY}`,
+    {
+      headers: {
+        api_key: API_KEY,
+      },
+    }
+  ).then(res => {
+    if (!res.ok) {
+      throw new Error(res.status);
+    }
+    return res.json();
   });
 }
