@@ -20,14 +20,11 @@ export function fetchBreeds() {
 //FETCHES CAT BREED
 
 export function fetchCatByBreed(breedId) {
-  return fetch(
-    `${BASE_URL}/images/search?breed_ids=${breedId}&api_key=${API_KEY}`,
-    {
-      headers: {
-        api_key: API_KEY,
-      },
-    }
-  ).then(res => {
+  return fetch(`${URL}/images/search?breed_ids=${breedId}`, {
+    headers: {
+      'x-api-key': API_KEY,
+    },
+  }).then(res => {
     if (!res.ok) {
       throw new Error(res.status);
     }

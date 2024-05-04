@@ -13,7 +13,7 @@ function chooseBreed() {
 
     let optionsMarkup = data
       .map(({ id, name }) => {
-        return `<options value=${id}>${name}</options>`;
+        return `<option value=${id}>${name}</option>`;
       })
       .join('');
     console.log(optionsMarkup);
