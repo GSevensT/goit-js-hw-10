@@ -48,5 +48,6 @@ breedSeletEl.addEventListener('change', e => {
     `;
     catInfoEl.classList.remove('is-hidden');
     loaderEl.classList.add('is-hidden');
+    errorEl.classList.remove('is-hidden');
   });
 });
